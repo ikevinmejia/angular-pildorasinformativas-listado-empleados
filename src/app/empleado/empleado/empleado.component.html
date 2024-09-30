@@ -1,0 +1,17 @@
+
+  <div class="row">
+    <div class="col">
+      <div>
+        {{indice + 1}}. Empleado: {{ empleadoDeLista.nombre }} {{ empleadoDeLista.apellido }} |
+        <span [ngClass]="{ forDirectors : empleadoDeLista.cargo === 'Presidente'}">{{ empleadoDeLista.cargo }}</span> |
+        Salario: USD {{ empleadoDeLista.salario }}
+      </div>
+      <carecteristicas-empleado (caracteristicasEmpleados)="agregarCaracteristicas($event)" ></carecteristicas-empleado>
+      <ul style="list-style: none;">
+        <li *ngFor="let caracteristica of arrayCaracteristicas">
+          {{caracteristica}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
