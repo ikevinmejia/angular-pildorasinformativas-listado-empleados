@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { EmpleadoModule } from './empleado/empleado.module';
-import { EmpleadosService } from './empleados.service';
+import { EmpleadoModule } from '../empleado/empleado.module';
+import { EmpleadosService } from '../empleados.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-home-component',
+  templateUrl: './home-component.component.html',
+  styleUrl: './home-component.component.css'
 })
-export class AppComponent implements OnInit {
+export class HomeComponentComponent implements OnInit {
 
   constructor(
     // private miServicio:ServicioEmpleadosService,

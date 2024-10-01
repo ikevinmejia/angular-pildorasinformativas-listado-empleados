@@ -1,63 +1,22 @@
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a routerLink="/" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="proyectos" class="nav-link">Proyectos</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="actualizar" class="nav-link">Actualizar</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="quienes" class="nav-link">Quiénes somos</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="contacto" class="nav-link">Contacto</a>
+    </li>
+  </ul>
+</nav>
 <div class="container">
-
-    <h1>Empleados</h1>
-
-    <form class="form-group row">
-      <div class="form-group col-md-3">
-        <label for="nombre">Nombre:</label>
-        <input
-          type="text"
-          placeholder="Nombre"
-          name="nombre"
-          id="nombre"
-          class="form-control"
-          [(ngModel)]="inputName"
-        />
-      </div>
-      <div class="form-group col-md-3">
-        <label for="apellido">Apellido:</label>
-        <input
-          type="text"
-          placeholder="Apellido"
-          name="apellido"
-          id="apellido"
-          class="form-control"
-          [(ngModel)]="inputLastName"
-        />
-      </div>
-      <div class="form-group col-md-3">
-        <label for="cargo">Cargo:</label>
-        <input
-          type="text"
-          placeholder="Cargo"
-          name="cargo"
-          id="cargo"
-          class="form-control"
-          [(ngModel)]="inputRole"
-        />
-      </div>
-      <div class="form-group col-md-3">
-        <label for="salario">Salario:</label>
-        <input
-          type="number"
-          placeholder="Salario"
-          name="salario"
-          id="salario"
-          class="form-control"
-          [(ngModel)]="inputPayment"
-        />
-      </div>
-
-      <button class="btn btn-primary mt-4 w-50" (click)="setNewEmployer()">
-        Añadir
-      </button>
-    </form>
-
-    <br /><br />
-  <empleado
-    *ngFor="let empleado of empleados; index as i"
-    [empleadoDeLista]="empleado"
-    [indice]="i"
-  >
-  </empleado>
+  <router-outlet></router-outlet>
 </div>

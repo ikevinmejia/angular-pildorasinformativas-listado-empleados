@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ServicioEmpleadosService } from '../../servicio-empleados.service';
 import { EmpleadoModule } from '../empleado.module';
 
 @Component({
@@ -8,6 +9,8 @@ import { EmpleadoModule } from '../empleado.module';
 })
 export class EmpleadoComponent {
 
+  constructor(private popUp:ServicioEmpleadosService) {}
+
   @Input() empleadoDeLista:EmpleadoModule;
   @Input() indice:number;
 
@@ -15,6 +18,7 @@ export class EmpleadoComponent {
   arrayCaracteristicas = [''];
 
   agregarCaracteristicas(nuevaCaracteristica:string) {
+    this.popUp.muestraMensaje('Caracteristica añadida: ' + nuevaCaracteristica)
     this.arrayCaracteristicas.push(nuevaCaracteristica)
   }
 }
