@@ -2,9 +2,25 @@
   <div class="row">
     <div class="col">
       <div>
-        {{indice + 1}}. Empleado: {{ empleadoDeLista.nombre }} {{ empleadoDeLista.apellido }} |
-        <span [ngClass]="{ forDirectors : empleadoDeLista.cargo === 'Presidente'}">{{ empleadoDeLista.cargo }}</span> |
-        Salario: USD {{ empleadoDeLista.salario }}
+        <span>
+          {{indice + 1}}. Empleado: {{ empleadoDeLista.nombre }} {{ empleadoDeLista.apellido }} |
+          <span [ngClass]="{ forDirectors : empleadoDeLista.cargo === 'Presidente'}">{{ empleadoDeLista.cargo }}</span> |
+          Salario: USD {{ empleadoDeLista.salario }}
+        </span>
+        <a
+          class="text-decoration-none mr-2"
+          [routerLink]="['/actualizar', indice]"
+          [queryParams]="{action:'1'}"
+          >
+          Actualizar
+        </a>
+        <a
+          class="text-decoration-none "
+          [routerLink]="['/actualizar', indice]"
+          [queryParams]="{action:'2'}"
+          >
+          Eliminar
+        </a>
       </div>
       <carecteristicas-empleado (caracteristicasEmpleados)="agregarCaracteristicas($event)" ></carecteristicas-empleado>
       <ul style="list-style: none;">

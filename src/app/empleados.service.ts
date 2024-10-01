@@ -21,4 +21,12 @@ export class EmpleadosService {
     this.servicioVentanaEmergente.muestraMensaje('Perfil agregado')
     this.empleados.push(empleado)
   }
+
+  actualizarEmpleadoService(index:number, empleado: EmpleadoModule):void{
+    this.empleados[index] = empleado;
+  }
+
+  eliminarEmpleadoService(index: number):void {
+    this.empleados.splice(index, 1)
+  }
 }

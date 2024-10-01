@@ -1,1 +1,58 @@
-<p>actualiza works!</p>
+<form class="form-group row">
+  <div class="form-group col-md-3">
+    <label for="nombre">Nombre:</label>
+    <input
+      type="text"
+      placeholder="Nombre"
+      name="nombre"
+      id="nombre"
+      class="form-control"
+      [(ngModel)]="inputName"
+    />
+  </div>
+  <div class="form-group col-md-3">
+    <label for="apellido">Apellido:</label>
+    <input
+      type="text"
+      placeholder="Apellido"
+      name="apellido"
+      id="apellido"
+      class="form-control"
+      [(ngModel)]="inputLastName"
+    />
+  </div>
+  <div class="form-group col-md-3">
+    <label for="cargo">Cargo:</label>
+    <input
+      type="text"
+      placeholder="Cargo"
+      name="cargo"
+      id="cargo"
+      class="form-control"
+      [(ngModel)]="inputRole"
+    />
+  </div>
+  <div class="form-group col-md-3">
+    <label for="salario">Salario:</label>
+    <input
+      type="number"
+      placeholder="Salario"
+      name="salario"
+      id="salario"
+      class="form-control"
+      [(ngModel)]="inputPayment"
+    />
+  </div>
+
+  <button *ngIf="action === '1'" class="btn btn-primary mt-4 w-50" (click)="updateEmployer()">
+    Actualizar
+  </button>
+  <button *ngIf="action === '2'" class="btn btn-danger mt-4 w-50 ml-2" (click)="deleteEmployer()">
+    Eliminar
+  </button>
+</form>
+
+
+<div class="mt-2">
+  <button class="btn btn-secondary" (click)="volverHome()">Ir a home</button>
+</div>
