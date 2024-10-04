@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import firebase from 'firebase/compat/app';
 import { EmpleadoModule } from './empleado/empleado.module';
 import { EmpleadosService } from './empleados.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,6 +18,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.empleados = this.empleadosService.empleados;
+    firebase.initializeApp({
+      apiKey: "AIzaSyDk394m8CsIkK50M4eYfCaFqmcUFrx2c8s",
+      authDomain: "angular-pildoras-informaticas.firebaseapp.com"
+    })
   }
 
   empleados:EmpleadoModule[] = [];
