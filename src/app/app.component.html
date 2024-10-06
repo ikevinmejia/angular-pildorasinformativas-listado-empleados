@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm bg-light">
-  <ul class="navbar-nav">
+  <ul class="navbar-nav" style="width: 100%;">
     <li class="nav-item">
       <a routerLink="/" class="nav-link">Home</a>
     </li>
@@ -12,6 +12,14 @@
     <li class="nav-item">
       <a routerLink="contacto" class="nav-link">Contacto</a>
     </li>
+    <div style="display: flex; width: 100%; flex:1; justify-content: end;">
+        <li class="nav-item" *ngIf="!estaLogueado()">
+          <a routerLink="/login" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="estaLogueado()">
+          <p (click)="logout()" class="nav-link" style="cursor: pointer;">Logout</p>
+        </li>
+    </div>
   </ul>
 </nav>
 <div class="container">

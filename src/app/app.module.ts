@@ -14,6 +14,7 @@ import { EmpleadoComponent } from './empleado/empleado/empleado.component';
 import { EmpleadosService } from './empleados.service';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 import { NotFound404Component } from './not-found404/not-found404.component';
 import { ProyectosComponentComponent } from './proyectos-component/proyectos-component.component';
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
@@ -78,6 +79,7 @@ const appRoutes:Routes = [
     ServicioEmpleadosService,
     EmpleadosService,
     DataServices,
+    LoginService,
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase/compat/app';
 import { EmpleadoModule } from './empleado/empleado.module';
 import { EmpleadosService } from './empleados.service';
+import { LoginService } from './login/login.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit {
   constructor(
     // private miServicio:ServicioEmpleadosService,
     private empleadosService:EmpleadosService,
+    private LoginService: LoginService,
   ) {
     // this.empleados = empleadosService.empleados;
   }
@@ -35,5 +37,13 @@ export class AppComponent implements OnInit {
     const employer = new EmpleadoModule(this.inputName, this.inputLastName, this.inputRole, this.inputPayment)
     // this.miServicio.muestraMensaje('Empleado registrado');
     this.empleadosService.agregarEmpleadoServicio(employer);
+  }
+
+  estaLogueado(){
+    return this.LoginService.estaLogueado();
+  }
+
+  logout() {
+    this.LoginService.logout();
   }
 }
