@@ -20,6 +20,9 @@ import { ProyectosComponentComponent } from './proyectos-component/proyectos-com
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
 import { ServicioEmpleadosService } from './servicio-empleados.service';
 
+import { CookieService } from 'ngx-cookie-service';
+import { LoginGuard } from './login/login-guardian';
+
 
 const appRoutes:Routes = [
   {
@@ -44,6 +47,8 @@ const appRoutes:Routes = [
   {
     path: 'contacto',
     component: ContactoComponentComponent,
+    canActivate: [LoginGuard],
+    title: 'bloqueado'
   },
   {
     path: 'login',
@@ -67,14 +72,19 @@ const appRoutes:Routes = [
         NotFound404Component,
         LoginComponent,
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent],
+    imports: [
+      BrowserModule,
         AppRoutingModule,
         FormsModule,
-        RouterModule.forRoot(appRoutes)], providers: [
+        RouterModule.forRoot(appRoutes)],
+    providers: [
         ServicioEmpleadosService,
         EmpleadosService,
         DataServices,
         LoginService,
         provideHttpClient(withInterceptorsFromDi()),
+        CookieService,
+        LoginGuard,
     ] })
 export class AppModule { }
