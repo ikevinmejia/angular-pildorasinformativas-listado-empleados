@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponent } from './actualiza/actualiza.component';
@@ -55,32 +55,26 @@ const appRoutes:Routes = [
   },
 ]
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    EmpleadoComponent,
-    CarecteristicasEmpleadoComponent,
-    HomeComponentComponent,
-    ProyectosComponentComponent,
-    QuienesComponentComponent,
-    ContactoComponentComponent,
-    ActualizaComponent,
-    NotFound404Component,
-    LoginComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule,
-  ],
-  providers: [
-    ServicioEmpleadosService,
-    EmpleadosService,
-    DataServices,
-    LoginService,
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        EmpleadoComponent,
+        CarecteristicasEmpleadoComponent,
+        HomeComponentComponent,
+        ProyectosComponentComponent,
+        QuienesComponentComponent,
+        ContactoComponentComponent,
+        ActualizaComponent,
+        NotFound404Component,
+        LoginComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes)], providers: [
+        ServicioEmpleadosService,
+        EmpleadosService,
+        DataServices,
+        LoginService,
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
